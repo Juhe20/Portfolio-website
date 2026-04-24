@@ -1,0 +1,158 @@
+/* Laboratory section */
+.laboratory-section {
+  overflow: hidden;
+}
+
+.laboratory-content {
+  width: 100%;
+  max-width: 1300px;
+}
+
+.laboratory-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.laboratory-header .section-text {
+  text-align: left;
+}
+
+.view-all-link {
+  color: #8b7cff;
+  font-size: 1.3rem;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.view-all-link:hover {
+  color: #ffffff;
+}
+
+.lab-slider {
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0;
+}
+
+.lab-track {
+  display: flex;
+  gap: 24px;
+  width: max-content;
+  animation: slideLab 28s linear infinite;
+}
+
+.lab-slider:hover .lab-track {
+  animation-play-state: paused;
+}
+
+.lab-card {
+  width: 380px;
+  height: 260px;
+  border: 1px solid #202020;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #050505;
+  cursor: pointer;
+  position: relative;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.lab-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  border-color: #8b7cff;
+  box-shadow: 0 20px 45px rgba(111, 99, 255, 0.2);
+}
+
+.lab-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+  opacity: 0.85;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.lab-card:hover img {
+  opacity: 1;
+  transform: scale(1.05);
+}
+
+.lab-card h3 {
+  font-size: 1.3rem;
+  padding: 14px 16px;
+  color: white;
+}
+
+.lab-tag {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 7px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+@keyframes slideLab {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* Video overlay */
+.video-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(8px);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 3000;
+  padding: 24px;
+}
+
+.video-overlay.active {
+  display: flex;
+}
+
+.video-modal {
+  width: min(1100px, 95vw);
+  background: #050505;
+  border: 1px solid #252525;
+  border-radius: 14px;
+  padding: 18px;
+  position: relative;
+}
+
+.close-video {
+  display: block;
+  margin-left: auto;
+  margin-bottom: 14px;
+  background: none;
+  border: none;
+  color: #f4f4f4;
+  font-family: inherit;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.close-video:hover {
+  color: #8b7cff;
+}
+
+.video-modal iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 10px;
+}
