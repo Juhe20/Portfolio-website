@@ -72,12 +72,12 @@ body {
 }
 
 .resume-btn {
-  display: flex;              /* puts text + icon side by side */
+  display: inline-flex;              /* puts text + icon side by side */
   align-items: center;        /* vertical alignment */
   gap: 8px;                   /* space between text and icon */
   padding: 10px 14px;
   border: 1px solid #6f63ff;
-  border-radius: 8px;
+  border-radius: 6px;
   color: #8b7cff !important;
   text-decoration: none;
   transition: all 0.2s ease;
@@ -206,5 +206,13 @@ body {
 
   .brand h1 {
     font-size: 1.5rem;
+  }
+  .resume-list{
+    display: flex;
+    flex-direction: column;
+    gap: 200px;
+    margin-top: 20px;
+    align-items: flex-start;
+
   }
 }
