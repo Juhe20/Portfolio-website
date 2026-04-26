@@ -272,5 +272,14 @@ body {
   gap: 28px;
   margin-top: 40px;
 }
-
-
+.about-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+}
+.about-image img {
+  max-width: 300px;
+  width: 100%;
+  height: auto;
+}
