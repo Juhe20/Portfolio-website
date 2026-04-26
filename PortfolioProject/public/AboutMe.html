@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Portfolio Website</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/styleAboutMe.css">
+</head>
+
+
+<body>
+
+   <header class="navbar">
+    <div class="brand">
+      <a href="#home" class="brand-link">
+        <h1>Your Name</h1>
+        <p>Medialogy Masters Student - Human-Computer Interaction</p>
+      </a>
+    </div>
+
+<nav class="nav-links">
+      <a href="#game">Game</a>
+      <a href="#projects">Projects</a>
+      <a href="#experience">Experience</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="cv/YourCV.pdf" download class="resume-btn">
+
+          <!-- SVG icon (this is NOT loaded from a file, it's written directly here) -->
+  <svg class="resume-icon"  xmlns="http://www.w3.org/2000/svg"  
+       width="16" height="16" viewBox="0 0 24 24" 
+       fill="none" stroke="currentColor" stroke-width="2">
+           <!-- vertical line of arrow -->
+    <path d="M12 3v12"></path>
+        <!-- arrow head -->
+    <path d="M7 10l5 5 5-5"></path>
+        <!-- bottom line -->
+    <path d="M5 21h14"></path>
+  </svg>
+    <!-- Text next to the icon -->
+      <span>Resume</span>
+
+      </a>
+    </nav>
+  </header>
+
+
+
+
+   <main>
+    <section id="home" class="section hero">
+      <div class="section-content">
+        <p class="eyebrow">Interactive portfolio</p>
+        <h2>Hi, I am building a portfolio website</h2>
+        <p class="section-text">
+          This website showcases mine and group projects, experience, skills, and contact information.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="primary-btn">View Projects</a>
+          <a href="#about" class="secondary-btn">About Me</a>
+        </div>
+      </div>
+    </section>
+
+
+  <section id="game" class="section">
+      <div class="section-content">
+        <p class="eyebrow">Game</p>
+        <h2>Playable Game</h2>
+        <p class="section-text">
+          Section to add a playable game maybe unity webgl build or something else. This will be the first thing people see when they visit the website, so make it fun and interactive!
+        </p>
+      </div>
+    </section>
+
+
+    <section id="projects" class="section">
+      <div class="section-content">
+        <p class="eyebrow">Projects</p>
+        <h2>Featured Projects</h2>
+        <p class="section-text">
+          This section will later show project cards loaded from our database.
+        </p>
+      </div>
+    </section>
+
+
+    <section id="experience" class="section">
+      <div class="section-content">
+        <p class="eyebrow">Experience</p>
+        <h2>Experience & Skills/Labratory</h2>
+        <p class="section-text">
+          Maybe the slider of all our individual projects.. Add education, tools, software, coding languages, and relevant experience here.
+        </p>
+      </div>
+    </section>
+
+
+     <section id="about" class="section">
+      <div class="section-content">
+        <p class="eyebrow">About</p>
+        <h2>About Us</h2>
+        <div class="about-container">
+<div class="about-image">
+    <img src="cv/Picture.png" alt="Profile picture">
+  </div>
+  <!-- LEFT: text -->
+  <div class="about-text">
+    <p class="section-text">
+      Here is a Short introduction about us, our experiences, and what we would clarify as strengths.
+    </p>
+  </div>
+</div>
+        <div class="about-strengths">
+  <div class="strength-card">
+    <div class="strength-icon">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       width="40" height="40" 
+       viewBox="0 0 24 24" 
+       fill="none" 
+       stroke="currentColor" 
+       stroke-width="2">
+    <rect x="2" y="4" width="20" height="12" rx="2"/>
+    <path d="M8 20h8"/>
+  </svg>
+</div>
+    <h3>3 Years</h3>
+    <p>Web & Mobile Development</p>
+  </div>
+
+    <div class="strength-card">
+  <div class="strength-icon">🎮</div>
+  <h3>3 years</h3>
+  <p>Game Development</p>
+</div>
+</div>
+        <div class="resume-list">   
+    <a href="cv/ASCv.pdf" target="_blank" class="resume-btn">
+
+          <!-- SVG icon (this is NOT loaded from a file, it's written directly here) -->
+  <svg class="resume-icon"  xmlns="http://www.w3.org/2000/svg"  
+       width="16" height="16" viewBox="0 0 24 24" 
+       fill="none" stroke="currentColor" stroke-width="2">
+           <!-- vertical line of arrow -->
+    <path d="M12 3v12"></path>
+        <!-- arrow head -->
+    <path d="M7 10l5 5 5-5"></path>
+        <!-- bottom line -->
+    <path d="M5 21h14"></path>
+  </svg>
+    <!-- Text next to the icon -->
+      <span>Resume</span>
+      </a>
+      <a href="#contact" class="contact-btn">
+        <span>Contact</span>
+      </a>
+    </div>
+    
+      </div>
+    </section>
+
+
+     <section id="contact" class="section">
+      <div class="section-content">
+        <p class="eyebrow">Contact</p>
+        <h2>Let’s Connect</h2>
+        <p class="section-text">
+          This section includes links to different websites and platforms where you can find us. Feel free to reach out and connect!
+        </p>
+<div class="contact-links">
+
+  <a href="https://www.linkedin.com/" target="_blank" class="resume-btn">
+    LinkedIn
+  </a>
+
+  <a href="https://github.com/yourusername" target="_blank" class="resume-btn">
+    GitHub
+</a>
+
+  <a href="https://www.facebook.com" target="_blank" class="resume-btn">
+    Facebook
+  </a>
+</div>   
+      </div>
+    </section>
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
