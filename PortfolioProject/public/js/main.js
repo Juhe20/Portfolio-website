@@ -29,26 +29,44 @@ document.addEventListener("keydown", (event) => {
     closeVideoOverlay();
   }
 });
-function loadAbout(section) {
+function loadAbout(section, event) {
   const container = document.getElementById("about-content");
 
-  container.innerHTML = "<p>Loading...</p>";
+  // fade out
+  container.style.opacity = 0;
 
-  fetch("PortfolioProject/public/about/" + section + ".html")
-    .then(res => res.text())
-    .then(data => {
-      container.innerHTML = data;
+  setTimeout(() => {
+    fetch("./about/" + section + ".html")
+      .then(res => {
+        if (!res.ok) throw new Error("404");
+        return res.text();
+      })
+      .then(data => {
+        container.innerHTML = data;
 
-      // remove active from all
-      document.querySelectorAll(".about-btn").forEach(btn => {
-        btn.classList.remove("active");
+        // fade in
+        container.style.opacity = 1;
+
+        // update active button (only if event exists)
+        if (event) {
+          document.querySelectorAll(".about-btn").forEach(btn => {
+            btn.classList.remove("active");
+          });
+
+          event.target.classList.add("active");
+        }
+      })
+      .catch(() => {
+        container.innerHTML = "<p>Failed to load content.</p>";
+        container.style.opacity = 1;
       });
-
-      // add active to clicked button
-      event.target.classList.add("active");
-    })
-    .catch(() => {
-      container.innerHTML = "<p>Failed to load content.</p>";
-    });
+  }, 150);
 }
+ window.addEventListener("DOMContentLoaded", () => {
+  const firstBtn = document.querySelector(".about-btn");
+  if (firstBtn) {
+    firstBtn.classList.add("active");
+  }
 
+  loadAbout("mahino");
+});
