@@ -283,3 +283,29 @@ body {
   width: 100%;
   height: auto;
 }
+.about-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 40px;
+}
+
+.about-btn {
+  padding: 10px 18px;
+  border: 1px solid #8b7cff;
+  background: transparent;
+  color: #8b7cff;
+  border-radius: 8px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.about-btn:hover {
+  background-color: rgba(111, 99, 255, 0.2);
+}
+
+.about-btn.active {
+  background-color: #6f63ff;
+  color: white;
+}

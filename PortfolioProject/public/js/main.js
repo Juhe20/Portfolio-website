@@ -29,3 +29,26 @@ document.addEventListener("keydown", (event) => {
     closeVideoOverlay();
   }
 });
+function loadAbout(section) {
+  const container = document.getElementById("about-content");
+
+  container.innerHTML = "<p>Loading...</p>";
+
+  fetch("PortfolioProject/public/about/" + section + ".html")
+    .then(res => res.text())
+    .then(data => {
+      container.innerHTML = data;
+
+      // remove active from all
+      document.querySelectorAll(".about-btn").forEach(btn => {
+        btn.classList.remove("active");
+      });
+
+      // add active to clicked button
+      event.target.classList.add("active");
+    })
+    .catch(() => {
+      container.innerHTML = "<p>Failed to load content.</p>";
+    });
+}
+
