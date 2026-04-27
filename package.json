@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Juhe20/Portfolio-website#readme",
   "dependencies": {
-    "express": "^5.2.1"
+    "express": "^5.2.1",
+    "sqlite3": "^6.0.1"
   }
 }
