@@ -321,4 +321,21 @@ body {
 #about-content {
   transition: opacity 0.25s ease;
 }
+#game {
+  display: flex;
+  flex-direction: column; /* STACK vertically */
+  align-items: center;
+}
 
+.section-content {
+  max-width: 800px;
+  text-align: center;
+}
+
+.game-container {
+  margin-top: 30px;
+}
+
+.game-container iframe {
+  max-width: 100%;
+}
