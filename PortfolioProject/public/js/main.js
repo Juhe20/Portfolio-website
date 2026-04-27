@@ -1,16 +1,66 @@
-const labCards = document.querySelectorAll(".lab-card");
 const videoOverlay = document.getElementById("videoOverlay");
 const videoFrame = document.getElementById("videoFrame");
 const closeVideo = document.getElementById("closeVideo");
 
-labCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    const videoUrl = card.dataset.video;
-    videoFrame.src = videoUrl;
-    videoOverlay.classList.add("active");
-  });
-});
+/* =========================
+   LOAD LAB PROJECTS (AJAX)
+========================= */
+async function loadLaboratoryProjects() {
+  try {
+    const response = await fetch("/api/laboratory");
+    const projects = await response.json();
 
+    const track = document.querySelector(".lab-track");
+    track.innerHTML = "";
+
+    projects.forEach((project) => {
+      const card = document.createElement("article");
+      card.classList.add("lab-card");
+      card.dataset.video = project.video;
+
+      card.innerHTML = `
+        <div class="lab-tag">${project.tag}</div>
+        <img src="${project.image}" alt="${project.title}">
+        <h3>${project.title}</h3>
+      `;
+
+      // click event (video overlay)
+      card.addEventListener("click", () => {
+        videoFrame.src = project.video;
+        videoOverlay.classList.add("active");
+      });
+
+      track.appendChild(card);
+    });
+
+    // duplicate cards for infinite slider
+    projects.forEach((project) => {
+      const card = document.createElement("article");
+      card.classList.add("lab-card");
+      card.dataset.video = project.video;
+
+      card.innerHTML = `
+        <div class="lab-tag">${project.tag}</div>
+        <img src="${project.image}" alt="${project.title}">
+        <h3>${project.title}</h3>
+      `;
+
+      card.addEventListener("click", () => {
+        videoFrame.src = project.video;
+        videoOverlay.classList.add("active");
+      });
+
+      track.appendChild(card);
+    });
+
+  } catch (error) {
+    console.error("Failed to load projects:", error);
+  }
+}
+
+/* =========================
+   VIDEO OVERLAY
+========================= */
 function closeVideoOverlay() {
   videoOverlay.classList.remove("active");
   videoFrame.src = "";
@@ -29,10 +79,13 @@ document.addEventListener("keydown", (event) => {
     closeVideoOverlay();
   }
 });
+
+/* =========================
+   ABOUT SECTION (UNCHANGED)
+========================= */
 function loadAbout(section, event) {
   const container = document.getElementById("about-content");
 
-  // fade out
   container.style.opacity = 0;
 
   setTimeout(() => {
@@ -43,11 +96,8 @@ function loadAbout(section, event) {
       })
       .then(data => {
         container.innerHTML = data;
-
-        // fade in
         container.style.opacity = 1;
 
-        // update active button (only if event exists)
         if (event) {
           document.querySelectorAll(".about-btn").forEach(btn => {
             btn.classList.remove("active");
@@ -62,7 +112,13 @@ function loadAbout(section, event) {
       });
   }, 150);
 }
- window.addEventListener("DOMContentLoaded", () => {
+
+/* =========================
+   ON LOAD
+========================= */
+window.addEventListener("DOMContentLoaded", () => {
+  loadLaboratoryProjects(); // 🔥 HENTER FRA SERVER
+
   const firstBtn = document.querySelector(".about-btn");
   if (firstBtn) {
     firstBtn.classList.add("active");

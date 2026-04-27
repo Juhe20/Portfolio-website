@@ -1,0 +1,24 @@
+{
+  "name": "portfolio-website",
+  "version": "1.0.0",
+  "description": "Portfolio miniproject for webprogramming 6th semester course. Showcases the groups projects, information and skills.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Juhe20/Portfolio-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Juhe20/Portfolio-website/issues"
+  },
+  "homepage": "https://github.com/Juhe20/Portfolio-website#readme",
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
