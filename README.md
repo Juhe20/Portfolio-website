@@ -9,8 +9,6 @@ ______________________________________________________________
 
 1. open command prompt and navigate to PortfolioProject/server ('cd ..\Portfolio-website\PortfolioProject\server')
 
-2. Type 'npm start'
-
-2.5. If step 2 failed type 'npm install sqlite3' and retry step 2
+2. Type 'npm start', if it fails type 'npm install sqlite3' and retry 'npm start'
 
 3. Open browser and go to localhost:3000
