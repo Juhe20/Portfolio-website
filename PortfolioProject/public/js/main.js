@@ -2,9 +2,7 @@ const videoOverlay = document.getElementById("videoOverlay");
 const videoFrame = document.getElementById("videoFrame");
 const closeVideo = document.getElementById("closeVideo");
 
-/* =========================
-   LOAD LAB PROJECTS (AJAX)
-========================= */
+
 async function loadLaboratoryProjects() {
   try {
     const response = await fetch("/api/laboratory");
@@ -33,7 +31,7 @@ async function loadLaboratoryProjects() {
       track.appendChild(card);
     });
 
-    // duplicate cards for infinite slider
+    
     projects.forEach((project) => {
       const card = document.createElement("article");
       card.classList.add("lab-card");
@@ -58,9 +56,7 @@ async function loadLaboratoryProjects() {
   }
 }
 
-/* =========================
-   VIDEO OVERLAY
-========================= */
+
 function closeVideoOverlay() {
   videoOverlay.classList.remove("active");
   videoFrame.src = "";
@@ -80,9 +76,7 @@ document.addEventListener("keydown", (event) => {
   }
 });
 
-/* =========================
-   ABOUT SECTION (UNCHANGED)
-========================= */
+
 function loadAbout(section, event) {
   const container = document.getElementById("about-content");
 
@@ -113,11 +107,8 @@ function loadAbout(section, event) {
   }, 150);
 }
 
-/* =========================
-   ON LOAD
-========================= */
 window.addEventListener("DOMContentLoaded", () => {
-  loadLaboratoryProjects(); // 🔥 HENTER FRA SERVER
+  loadLaboratoryProjects(); 
 
   const firstBtn = document.querySelector(".about-btn");
   if (firstBtn) {
