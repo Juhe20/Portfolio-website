@@ -1,43 +1,19 @@
-const db = new sqlite3.Database("../../database.db");
+const sqlite3 = require("sqlite3").verbose();
+const db = new sqlite3.Database("../database.db");
 const express = require("express");
 const app = express();
 const PORT = 3000;
 
-app.use(express.static("PortfolioProject/public"));
+app.use(express.static("../public"));
 
 app.get("/api/laboratory", (req, res) => {
-  res.json([
-    {
-      title: "Augmented Reality Game",
-      tag: "LensStudio",
-      image: "Images/ARGame.png",
-      video: "https://www.youtube.com/embed/2yJgwwDcgV8"
-    },
-    {
-      title: "Dungeon Crawler Game",
-      tag: "Unity",
-      image: "Images/EgyptGame.png",
-      video: "https://www.youtube.com/embed/2yJgwwDcgV8"
-    },
-    {
-      title: "Virtual Reality Game",
-      tag: "UnityVR",
-      image: "Images/GhostGame.png",
-      video: "https://www.youtube.com/embed/2yJgwwDcgV8"
-    },
-    {
-      title: "MC Virtual Reality Game",
-      tag: "UnityVR",
-      image: "Images/MinecraftGame.png",
-      video: "https://www.youtube.com/embed/2yJgwwDcgV8"
-    },
-    {
-      title: "3D World Game",
-      tag: "Unity",
-      image: "Images/SlenderGame.png",
-      video: "https://www.youtube.com/embed/2yJgwwDcgV8"
-    }
-  ]);
+    db.all("SELECT * FROM projects", [], (err, rows) => {
+        if (err) {
+            res.status(500).json({ error: err.message });
+            return;
+        }
+        res.json(rows);
+    });
 });
 
 app.listen(PORT, () => {
